@@ -25,6 +25,8 @@ class AddTaskEventHandler(tableView: TableView[TaskItem], db: PostgresProfile.ba
         .map(d => new java.sql.Date(d.getTime()))
         .toOption
 
+
+
       val calendar = Calendar.getInstance
       val today = new java.sql.Date(calendar.getTime.getTime)
 

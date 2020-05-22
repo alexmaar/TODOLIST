@@ -1,9 +1,12 @@
 package view
 
+import java.time.LocalDate
+
 import javafx.application.Platform
 import javafx.scene.control.ButtonBar.ButtonData
 import javafx.scene.control.{ButtonType, Dialog}
 import node.TaskItem
+import java.time.format.DateTimeFormatter
 
 
 object UsingUtils {
@@ -21,11 +24,22 @@ object UsingUtils {
 
     // OK button handler
     addingDialog.setResultConverter(dialogButton => {
-      if(dialogButton == okButton){
-        val task = new TaskItem(-1, taskPane.taskField.getText,
-          taskPane.commentsField.getText, taskPane.deadlineField.getText, "")
-        Some(task)
-      }
+//      if(dialogButton == okButton){
+//        val task = new TaskItem(-1, taskPane.taskField.getText,
+//          taskPane.commentsField.getText, taskPane.deadlineField.getText, "")
+//        Some(task)
+//      }
+
+      val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+      val deadline = formatter.format(taskPane.datePicker.getValue)
+      println(deadline)
+
+            if(dialogButton == okButton){
+              val task = new TaskItem(-1, taskPane.taskField.getText,
+                taskPane.commentsField.getText, deadline, "")
+              Some(task)
+            }
+
       else{
         None
       }

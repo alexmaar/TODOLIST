@@ -17,7 +17,7 @@ class Controller {
 
   addButton.setOnAction(new AddTaskEventHandler(tableView, db))
   deleteButton.setOnAction(new DeleteEventHandler(tableView, db))
-  searchButton.setOnAction(new SearchEventHandler(tableView))
+  searchButton.setOnAction(new SearchEventHandler(this, db, tableView))
   tableView.setOnMouseClicked(new EditTaskEventHandler(tableView, db))
 
 

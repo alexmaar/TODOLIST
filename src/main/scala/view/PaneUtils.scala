@@ -10,14 +10,14 @@ object PaneUtils {
 
   def createTaskColumn(): TableColumn[TaskItem, String] ={
     val taskColumn = new TableColumn[TaskItem, String]("Task")
-    taskColumn.setMinWidth(250)
+    taskColumn.setMinWidth(150)
     taskColumn.setCellValueFactory(new PropertyValueFactory[TaskItem, String]("Task"))
     taskColumn
   }
 
   def createCommentsColumn(): TableColumn[TaskItem, String]={
   val commentsColumn = new TableColumn[TaskItem, String]("Comments")
-    commentsColumn.setMinWidth(150)
+    commentsColumn.setMinWidth(250)
     commentsColumn.setCellValueFactory(new PropertyValueFactory[TaskItem, String]("Comments"))
     commentsColumn
   }
@@ -30,7 +30,7 @@ object PaneUtils {
   }
 
   def createAddDateColumn(): TableColumn[TaskItem, String]={
-    val addDateColumn = new TableColumn[TaskItem, String]("AddingDate")
+    val addDateColumn = new TableColumn[TaskItem, String]("AddDate")
     addDateColumn.setMinWidth(150)
     addDateColumn.setCellValueFactory(new PropertyValueFactory[TaskItem, String]("AddDate"))
     addDateColumn
