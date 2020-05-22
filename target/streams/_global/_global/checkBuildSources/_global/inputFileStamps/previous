@@ -1,1 +1,1 @@
-["sbt.Task[scala.collection.Seq[scala.Tuple2[java.nio.file.Path, sbt.nio.FileStamp]]]",{"hashes":[["/Users/aleksandramarzec/ToDoListProject/build.sbt","687823453ae8f5b48238d5117e33246466f2fb7b"]],"lastModifiedTimes":[]}]
+["sbt.Task[scala.collection.Seq[scala.Tuple2[java.nio.file.Path, sbt.nio.FileStamp]]]",{"hashes":[["E:\\studia\\Semestr4\\TODOLIST\\TODOLIST\\build.sbt","9c3803c6001c1ed6549916e7d91ae89a6094dc10"]],"lastModifiedTimes":[]}]

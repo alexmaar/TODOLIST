@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="slick_2.13-3.3.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/slick_2.13-3.3.2.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/db-derby-10.15.2.0-bin/db-derby-10.15.2.0-bin/lib/derbyclient.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/db-derby-10.15.2.0-bin/db-derby-10.15.2.0-bin/lib/derbytools.jar!/" />
+      <root url="jar://$PATH_TO_FX$/javafx-swt.jar!/" />
+      <root url="jar://$PATH_TO_FX$/javafx.base.jar!/" />
+      <root url="jar://$PATH_TO_FX$/javafx.controls.jar!/" />
+      <root url="jar://$PATH_TO_FX$/javafx.fxml.jar!/" />
+      <root url="jar://$PATH_TO_FX$/javafx.graphics.jar!/" />
+      <root url="jar://$PATH_TO_FX$/javafx.media.jar!/" />
+      <root url="jar://$PATH_TO_FX$/javafx.swing.jar!/" />
+      <root url="jar://$PATH_TO_FX$/javafx.web.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

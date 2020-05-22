@@ -22,8 +22,8 @@ object UsingUtils {
     // OK button handler
     addingDialog.setResultConverter(dialogButton => {
       if(dialogButton == okButton){
-        val task = new TaskItem(taskPane.taskField.getText,
-          taskPane.commentsField.getText, taskPane.deadlineField.getText)
+        val task = new TaskItem(-1, taskPane.taskField.getText,
+          taskPane.commentsField.getText, taskPane.deadlineField.getText, "")
         Some(task)
       }
       else{

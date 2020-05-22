@@ -29,6 +29,13 @@ object PaneUtils {
     deadlineColumn
   }
 
+  def createAddDateColumn(): TableColumn[TaskItem, String]={
+    val addDateColumn = new TableColumn[TaskItem, String]("AddingDate")
+    addDateColumn.setMinWidth(150)
+    addDateColumn.setCellValueFactory(new PropertyValueFactory[TaskItem, String]("AddDate"))
+    addDateColumn
+  }
+
   def setTopBoxConf(box: HBox, searchField: TextField): Unit ={
     searchField.setPrefWidth(400)
     HBox.setHgrow(searchField, Priority.ALWAYS)
@@ -62,8 +69,9 @@ object PaneUtils {
 
   def addColumns(tableView: TableView[TaskItem], taskColumn: TableColumn[TaskItem, String],
                  commentsColumn: TableColumn[TaskItem, String],
-                 deadlineColumn: TableColumn[TaskItem, String]): Unit ={
-    tableView.getColumns.addAll(taskColumn, commentsColumn, deadlineColumn)
+                 deadlineColumn: TableColumn[TaskItem, String],
+                 addDateColumn: TableColumn[TaskItem, String]): Unit ={
+    tableView.getColumns.addAll(taskColumn, commentsColumn, deadlineColumn, addDateColumn)
   }
 
   def setColumnConstraints(gridPane: MyPane): Unit = {

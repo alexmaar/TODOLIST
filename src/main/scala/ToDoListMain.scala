@@ -2,6 +2,7 @@ import controller.Controller
 import javafx.application.Application
 import javafx.scene.Scene
 import javafx.stage.{Screen, Stage}
+import node.TaskItem
 
 object ToDoListMain{
   def main(args: Array[String]): Unit ={

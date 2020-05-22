@@ -9,12 +9,12 @@ class TaskPane extends GridPane {
   val taskLabel = new Label("Note:")
   val commentsLabel = new Label("Comments:")
   val deadlineLabel = new Label("Deadline date:")
-  val addingDateLabel = new Label("Adding date:")
+//  val addingDateLabel = new Label("Adding date:")
 
   val taskField = new TextArea()
   val commentsField = new TextArea()
   val deadlineField = new TextArea()
-  val addingDateField = new TextArea()
+//  val addingDateField = new TextArea()
 
   val saveButton = new Button("Save")
   val cancelButton = new Button("Cancel")
@@ -22,16 +22,17 @@ class TaskPane extends GridPane {
   taskField.setWrapText(true)
   GridPane.setVgrow(taskField, Priority.ALWAYS)
   commentsField.setPromptText("optional")
+  deadlineField.setPromptText("YYYY-mm-dd")
 
   this.addRow(0, taskLabel, taskField)
   this.addRow(1, commentsLabel, commentsField)
-  this.addRow(2, addingDateLabel, addingDateField)
-  this.addRow(3, deadlineLabel, deadlineField)
+  this.addRow(2, deadlineLabel, deadlineField)
+  //  this.addRow(3, addingDateLabel, addingDateField)
 
   GridPane.setValignment(taskLabel, VPos.TOP)
   GridPane.setHalignment(taskLabel, HPos.RIGHT)
   GridPane.setHalignment(commentsField, HPos.RIGHT)
-  GridPane.setHalignment(addingDateField, HPos.RIGHT)
+//  GridPane.setHalignment(addingDateField, HPos.RIGHT)
   GridPane.setHalignment(deadlineField, HPos.RIGHT)
 
   val col1 = new ColumnConstraints()

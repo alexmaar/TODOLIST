@@ -7,8 +7,12 @@ import javafx.event.{ActionEvent, EventHandler}
 import javafx.scene.control.Alert.AlertType
 import javafx.scene.control.{Alert, ButtonType, TableView}
 import node.TaskItem
+import slick.jdbc.PostgresProfile.api._
+import models.Tables._
+import slick.jdbc.PostgresProfile
 
-class DeleteEventHandler(tableView: TableView[TaskItem]) extends EventHandler[ActionEvent]{
+
+class DeleteEventHandler(tableView: TableView[TaskItem], db: PostgresProfile.backend.Database) extends EventHandler[ActionEvent]{
   override def handle(event: ActionEvent): Unit ={
 
     // chosen items as observableList
@@ -27,8 +31,13 @@ class DeleteEventHandler(tableView: TableView[TaskItem]) extends EventHandler[Ac
       }
       // show window and wait for ok/cancel button
       val result:Optional[ButtonType] = alert.showAndWait
+
       if(result.get() == ButtonType.OK){
-        // delete from data base(tableViewItems)
+
+        // delete item from data base
+        tableViewItems.forEach(item =>
+          db.run(Tasks.filter(_.task === item.task).delete)
+        )
 
         tableView.getItems.removeAll(tableViewItems) // delete chosen items from tableView
         tableView.getSelectionModel.clearSelection()
