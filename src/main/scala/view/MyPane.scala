@@ -26,7 +26,7 @@ class MyPane(db: PostgresProfile.backend.Database) extends GridPane{
     }
   }
   // get data from database
-  db.run(Tasks.result).foreach(userRows => userRows.foreach(u => addToList(u.id, u.task, u.comments, u.deadline, u.adddate, tableView)))
+  db.run(Tasks.result).foreach(taskRows => taskRows.foreach(u => addToList(u.id, u.task, u.comments, u.deadline, u.adddate, tableView)))
 
   val searchField = new TextField
   searchField.setPromptText("<search>")

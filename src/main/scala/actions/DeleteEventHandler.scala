@@ -15,7 +15,6 @@ import slick.jdbc.PostgresProfile
 class DeleteEventHandler(tableView: TableView[TaskItem], db: PostgresProfile.backend.Database) extends EventHandler[ActionEvent]{
   override def handle(event: ActionEvent): Unit ={
 
-    // chosen items as observableList
     val tableViewItems: ObservableList[TaskItem] = tableView.getSelectionModel.getSelectedItems
 
 
@@ -29,7 +28,6 @@ class DeleteEventHandler(tableView: TableView[TaskItem], db: PostgresProfile.bac
         alert.setTitle("Delete tasks?")
         alert.setContentText("Delete the selected tasks?")
       }
-      // show window and wait for ok/cancel button
       val result:Optional[ButtonType] = alert.showAndWait
 
       if(result.get() == ButtonType.OK){

@@ -12,7 +12,7 @@ object ToDoListMain{
 
 class ToDoListMain extends Application{
 
-   def Height() = Screen.getPrimary.getVisualBounds.getHeight *2/3
+   def Height() = Screen.getPrimary.getVisualBounds.getHeight * 1/2
    def Width() = Screen.getPrimary.getVisualBounds.getHeight
 
    val controller = new Controller

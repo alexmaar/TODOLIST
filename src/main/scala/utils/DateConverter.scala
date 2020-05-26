@@ -1,23 +1,26 @@
 package utils
 
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.util.{Calendar, Date}
+import java.util.Calendar
 
-class DateConverter {
 
-  val format = "EEE, MMM dd, yyyy h:mm a"
+import scala.util.Try
 
-  def dateToString(d: LocalDate): String={
-    val date = new SimpleDateFormat(format)
-    date.format(d)
+object DateConverter {
+
+  val format = "yyyy-MM-dd"
+
+  def dateStringToDate(date: String) ={
+    Try(new SimpleDateFormat(format)
+      .parse(date))
+      .map(d => new java.sql.Date(d.getTime()))
+      .toOption
   }
 
-  def stringToDate(s: String): Date ={
-    val string = new SimpleDateFormat(format)
-    string.parse(s)
+  def getTodayAsSqlDate() ={
+    val calendar = Calendar.getInstance
+    val today = new java.sql.Date(calendar.getTime.getTime)
+    today
   }
-
-  def currentDate: Date = Calendar.getInstance.getTime
 
 }

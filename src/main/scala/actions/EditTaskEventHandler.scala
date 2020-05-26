@@ -11,8 +11,7 @@ import slick.jdbc.PostgresProfile
 import slick.jdbc.PostgresProfile.api._
 import view._
 import models.Tables._
-
-import scala.util.Try
+import utils._
 
 class EditTaskEventHandler(tableView: TableView[TaskItem], db: PostgresProfile.backend.Database) extends EventHandler[MouseEvent] {
   override def handle(e: MouseEvent): Unit ={
@@ -25,22 +24,19 @@ class EditTaskEventHandler(tableView: TableView[TaskItem], db: PostgresProfile.b
 
       editedTaskPane.taskField.setText(originalTask.task)
       editedTaskPane.commentsField.setText(originalTask.comments)
-      editedTaskPane.deadlineField.setText(originalTask.deadline) // TO DO convert date
+      editedTaskPane.deadlineField.setText(originalTask.deadline)
 
       val result = UsingUtils.taskEditor("Edit task",editedTaskPane)
       // show window and wait for ok/cancel button
       result match{
         case Some(editedTask) =>
-          val newDeadline = Try(new SimpleDateFormat("yyyy-MM-dd").parse(editedTask.deadline))
-            .map(d => new java.sql.Date(d.getTime()))
-            .toOption
 
-          val calendar = Calendar.getInstance
-          val today = new java.sql.Date(calendar.getTime.getTime)
+          val newDeadline = DateConverter.dateStringToDate(editedTask.getDeadline)
+          val today = DateConverter.getTodayAsSqlDate()
 
           // edit task in database
-          db.run(Tasks.filter(_.task === originalTask.task).map(t =>
-            (t.task, t.comments, t.deadline, t.adddate))
+          db.run(Tasks.filter(_.task === originalTask.task)
+            .map(t => (t.task, t.comments, t.deadline, t.adddate))
             .update((Option(editedTask.task)), Option(editedTask.comments), newDeadline, Option(today)))
 
           // edit task in table view
